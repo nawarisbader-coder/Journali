@@ -6,8 +6,15 @@
 	objectVersion = 90;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D62F629930A2FE0500FDA7FF /* Color+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62F629830A2FE0500FDA7FF /* Color+App.swift */; };
+		D62F629B30A2FEBA00FDA7FF /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62F629A30A2FEBA00FDA7FF /* SplashView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		000000000000000000000120 /* Journali.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Journali.app; path = /Users/nawarisalotaibi/Desktop/Journali/build/Debug/Journali.app; sourceTree = "<absolute>"; };
+		D62F629830A2FE0500FDA7FF /* Color+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+App.swift"; sourceTree = "<group>"; };
+		D62F629A30A2FEBA00FDA7FF /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -55,6 +62,7 @@
 		D62F629F30A3039200FDA7FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D62F629A30A2FEBA00FDA7FF /* SplashView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -62,6 +70,7 @@
 		D62F62A130A303EE00FDA7FF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D62F629830A2FE0500FDA7FF /* Color+App.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -133,6 +142,8 @@
 		000000000000000120000000 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				D62F629B30A2FEBA00FDA7FF /* SplashView.swift in Sources */,
+				D62F629930A2FE0500FDA7FF /* Color+App.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */
