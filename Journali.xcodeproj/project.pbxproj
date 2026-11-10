@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		000000000000000000000120 /* Journali.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journali.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		000000000000000000000120 /* Journali.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Journali.app; path = /Users/nawarisalotaibi/Desktop/Journali/build/Debug/Journali.app; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -31,16 +31,39 @@
 			isa = PBXGroup;
 			children = (
 				000000000000000000000010 /* Journali */,
-				000000000000000000000020 /* Products */,
+				D62F629130A2FC2100FDA7FF /* Models */,
+				D62F629530A2FD3300FDA7FF /* ViewModels */,
+				D62F629F30A3039200FDA7FF /* Views */,
+				D62F62A130A303EE00FDA7FF /* Extensions */,
 			);
 			sourceTree = "<group>";
 		};
-		000000000000000000000020 /* Products */ = {
+		D62F629130A2FC2100FDA7FF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				000000000000000000000120 /* Journali.app */,
 			);
-			name = Products;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D62F629530A2FD3300FDA7FF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D62F629F30A3039200FDA7FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D62F62A130A303EE00FDA7FF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,7 +112,7 @@
 			mainGroup = 000000000000000000000001;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 90;
-			productRefGroup = 000000000000000000000020 /* Products */;
+			productRefGroup = 000000000000000000000001;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
