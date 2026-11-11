@@ -8,13 +8,12 @@
 import Foundation
 
 struct Journal: Identifiable {
-    let id = UUID()          // a name tag, so every journal is different
+    let id = UUID()
     var title: String
     var date: Date
     var content: String
     var isBookmarked: Bool
 
-    // Turns the date into 02/09/2024
     var formattedDate: String {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
@@ -22,7 +21,6 @@ struct Journal: Identifiable {
     }
 }
 
-// Pretend journals, so we have something to show
 extension Journal {
     static let sampleDate = DateComponents(calendar: .current, year: 2024, month: 9, day: 2).date ?? Date()
     static let sampleText = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non"

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct JournalCardView: View {
-    let journal: Journal            // "Give me one journal to show"
+    let journal: Journal
+    let onBookmarkTap: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
 
-            // Top row: title + date on the left, bookmark on the right
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(journal.title)
@@ -25,21 +25,25 @@ struct JournalCardView: View {
                         .foregroundStyle(Color.textSecondary)
                 }
 
-                Spacer()            // a squishy pillow that pushes things apart
+                Spacer()
 
-                Image(journal.isBookmarked ? "BookmarkFill" : "Bookmark")
-                    .renderingMode(.template)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 20, height: 24)
-                    .foregroundStyle(Color.textAccent)
+                Button {
+                    onBookmarkTap()
+                } label: {
+                    Image(journal.isBookmarked ? "BookmarkFill" : "Bookmark")
+                        .renderingMode(.template)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 24)
+                        .foregroundStyle(Color.textAccent)
+                }
+                .buttonStyle(.plain)
             }
 
-            // The journal words
             Text(journal.content)
                 .font(.system(size: 18))
                 .foregroundStyle(.white)
-                .lineLimit(5)       // show at most 5 lines, like the design
+                .lineLimit(5)
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -48,7 +52,7 @@ struct JournalCardView: View {
 }
 
 #Preview {
-    JournalCardView(journal: Journal.samples[0])
+    JournalCardView(journal: Journal.samples[0], onBookmarkTap: {})
         .padding()
         .background(Color.backgroundPrimary)
 }
