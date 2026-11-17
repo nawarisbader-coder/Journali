@@ -17,6 +17,7 @@
 		D62F62B930A4635D00FDA7FF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62F62B830A4635D00FDA7FF /* RootView.swift */; };
 		D6B37CFE30A59EF300B95181 /* JournalEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B37CFD30A59EF300B95181 /* JournalEditorView.swift */; };
 		D6B37D0030A5AF9300B95181 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B37CFF30A5AF9300B95181 /* SortOption.swift */; };
+		D6B37D0A30AC2C9900B95181 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = D6B37D0930AC2C9900B95181 /* AppIcon.icon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		D62F62B830A4635D00FDA7FF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		D6B37CFD30A59EF300B95181 /* JournalEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEditorView.swift; sourceTree = "<group>"; };
 		D6B37CFF30A5AF9300B95181 /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
+		D6B37D0930AC2C9900B95181 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -59,6 +61,7 @@
 				D62F629F30A3039200FDA7FF /* Views */,
 				D62F62A130A303EE00FDA7FF /* Extensions */,
 				000000000000000000000120 /* Journali.app */,
+				D6B37D0930AC2C9900B95181 /* AppIcon.icon */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,6 +162,7 @@
 		000000000000000140000000 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				D6B37D0A30AC2C9900B95181 /* AppIcon.icon in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
@@ -317,6 +321,7 @@
 		000000000000000111000000 /* Debug configuration for PBXNativeTarget "Journali" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PX3JS3T468;
@@ -355,6 +360,7 @@
 		000000000000000112000000 /* Release configuration for PBXNativeTarget "Journali" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PX3JS3T468;

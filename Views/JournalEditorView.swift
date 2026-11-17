@@ -26,7 +26,6 @@ struct JournalEditorView: View {
         case content
     }
 
-    // journal is an Optional: nil means "brand new journal"
     init(journal: Journal? = nil, onSave: @escaping (String, String) -> Void) {
         let startTitle = journal?.title ?? ""
         let startContent = journal?.content ?? ""
@@ -51,7 +50,6 @@ struct JournalEditorView: View {
         || !content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
-    // Did the person change anything since opening?
     private var hasChanges: Bool {
         title != initialTitle || content != initialContent
     }
@@ -60,7 +58,7 @@ struct JournalEditorView: View {
         VStack(alignment: .leading, spacing: 20) {
 
             HStack {
-                // X button
+                // X button (glass)
                 Button {
                     if hasChanges {
                         showDiscardDialog = true
@@ -75,7 +73,7 @@ struct JournalEditorView: View {
                         .frame(width: 18, height: 18)
                         .foregroundStyle(.white)
                         .frame(width: 50, height: 50)
-                        .background(Color.backgroundPrimary.opacity(0.6), in: Circle())
+                        .glassEffect(.regular.interactive(), in: .circle)
                 }
                 .buttonStyle(.plain)
                 .confirmationDialog(
@@ -86,12 +84,13 @@ struct JournalEditorView: View {
                     Button("Discard Changes", role: .destructive) {
                         dismiss()
                     }
-                    Button("Keep Editing", role: .cancel) { }
+                    // No "cancel" role here, so iOS always shows this button
+                    Button("Keep Editing") { }
                 }
 
                 Spacer()
 
-                // Checkmark button
+                // Checkmark button (purple glass)
                 Button {
                     onSave(title, content)
                     dismiss()
@@ -103,7 +102,7 @@ struct JournalEditorView: View {
                         .frame(width: 20, height: 20)
                         .foregroundStyle(.black)
                         .frame(width: 50, height: 50)
-                        .background(Color.primaryAccent, in: Circle())
+                        .glassEffect(.regular.tint(Color.primaryAccent).interactive(), in: .circle)
                 }
                 .buttonStyle(.plain)
                 .disabled(!canSave)

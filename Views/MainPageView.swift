@@ -50,10 +50,15 @@ struct MainPageView: View {
                     }
                     .listStyle(.plain)
                     .scrollContentBackground(.hidden)
+                    .scrollDismissesKeyboard(.interactively)
                     .animation(.default, value: viewModel.sortOption)
                 }
             }
+            .safeAreaInset(edge: .bottom) {
+                searchBar
+            }
             .navigationTitle("Journal")
+            .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Menu {
@@ -81,7 +86,6 @@ struct MainPageView: View {
                     }
                 }
             }
-            .searchable(text: $viewModel.searchText, prompt: "Search")
         }
         .preferredColorScheme(.dark)
         // New Journal sheet
@@ -118,6 +122,40 @@ struct MainPageView: View {
         } message: { _ in
             Text("Are you sure you want to delete this journal?")
         }
+    }
+
+    // The search bar: magnifier + text box
+    private var searchBar: some View {
+        HStack(spacing: 10) {
+            Image(systemName: "magnifyingglass")
+                .font(.system(size: 18))
+                .foregroundStyle(Color.textSecondary)
+
+            TextField(
+                "Search",
+                text: $viewModel.searchText,
+                prompt: Text("Search").foregroundStyle(Color.textSecondary)
+            )
+            .font(.system(size: 18))
+            .foregroundStyle(.white)
+            .tint(Color.primaryAccent)
+            .submitLabel(.search)
+
+            if !viewModel.searchText.isEmpty {
+                Button {
+                    viewModel.searchText = ""
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(Color.textSecondary)
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 14)
+        .glassEffect(.regular, in: .capsule)
+        .padding(.horizontal, 20)
+        .padding(.bottom, 8)
     }
 }
 

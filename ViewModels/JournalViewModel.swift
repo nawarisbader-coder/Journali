@@ -10,11 +10,39 @@ import SwiftUI
 import Combine
 
 class JournalViewModel: ObservableObject {
-    @Published var journals: [Journal] = []
+
+    // Every time this list changes, it is saved automatically.
+    @Published var journals: [Journal] = [] {
+        didSet { save() }
+    }
     @Published var sortOption: SortOption = .entryDate
     @Published var searchText: String = ""
 
-    // Same journals, in the right order
+    // The notebook file on the phone
+    private let fileURL = URL.documentsDirectory.appending(path: "journals.json")
+
+    // When the brain wakes up, it reads the notebook
+    init() {
+        load()
+    }
+
+    // MARK: - Saving and loading
+
+    private func save() {
+        if let data = try? JSONEncoder().encode(journals) {
+            try? data.write(to: fileURL, options: .atomic)
+        }
+    }
+
+    private func load() {
+        guard let data = try? Data(contentsOf: fileURL) else { return }
+        if let saved = try? JSONDecoder().decode([Journal].self, from: data) {
+            journals = saved
+        }
+    }
+
+    // MARK: - Lists for the screen
+
     var sortedJournals: [Journal] {
         switch sortOption {
         case .bookmark:
@@ -29,7 +57,6 @@ class JournalViewModel: ObservableObject {
         }
     }
 
-    // Sorted, and then filtered by whatever is typed in the search bar
     var visibleJournals: [Journal] {
         let words = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         if words.isEmpty {
@@ -40,6 +67,8 @@ class JournalViewModel: ObservableObject {
             || journal.content.localizedCaseInsensitiveContains(words)
         }
     }
+
+    // MARK: - Actions
 
     func addJournal(title: String, content: String) {
         let cleanTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
