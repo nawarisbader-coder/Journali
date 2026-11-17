@@ -41,8 +41,7 @@ struct MainPageView: View {
                                 Button {
                                     journalToDelete = journal
                                 } label: {
-                                    Image("Trash")
-                                        .renderingMode(.template)
+                                    Image(systemName: "trash.fill")
                                 }
                                 .tint(Color.destructive)
                             }
@@ -68,21 +67,13 @@ struct MainPageView: View {
                             }
                         }
                     } label: {
-                        Image("Filter")
-                            .renderingMode(.template)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 22, height: 22)
+                        Image(systemName: "line.3.horizontal.decrease")
                     }
 
                     Button {
                         showNewJournal = true
                     } label: {
-                        Image("Plus")
-                            .renderingMode(.template)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 22, height: 22)
+                        Image(systemName: "plus")
                     }
                 }
             }

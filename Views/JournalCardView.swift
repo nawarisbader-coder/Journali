@@ -30,11 +30,8 @@ struct JournalCardView: View {
                 Button {
                     onBookmarkTap()
                 } label: {
-                    Image(journal.isBookmarked ? "BookmarkFill" : "Bookmark")
-                        .renderingMode(.template)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20, height: 24)
+                    Image(systemName: journal.isBookmarked ? "bookmark.fill" : "bookmark")
+                        .font(.system(size: 22))
                         .foregroundStyle(Color.textAccent)
                 }
                 .buttonStyle(.plain)

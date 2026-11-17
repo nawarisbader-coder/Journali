@@ -66,11 +66,8 @@ struct JournalEditorView: View {
                         dismiss()
                     }
                 } label: {
-                    Image("Xmark")
-                        .renderingMode(.template)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 18, height: 18)
+                    Image(systemName: "xmark")
+                        .font(.system(size: 18, weight: .medium))
                         .foregroundStyle(.white)
                         .frame(width: 50, height: 50)
                         .glassEffect(.regular.interactive(), in: .circle)
@@ -84,7 +81,6 @@ struct JournalEditorView: View {
                     Button("Discard Changes", role: .destructive) {
                         dismiss()
                     }
-                    // No "cancel" role here, so iOS always shows this button
                     Button("Keep Editing") { }
                 }
 
@@ -95,11 +91,8 @@ struct JournalEditorView: View {
                     onSave(title, content)
                     dismiss()
                 } label: {
-                    Image("Checked")
-                        .renderingMode(.template)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20, height: 20)
+                    Image(systemName: "checkmark")
+                        .font(.system(size: 20, weight: .medium))
                         .foregroundStyle(.black)
                         .frame(width: 50, height: 50)
                         .glassEffect(.regular.tint(Color.primaryAccent).interactive(), in: .circle)
